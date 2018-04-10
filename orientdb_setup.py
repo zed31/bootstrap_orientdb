@@ -230,7 +230,7 @@ def create_edge_require(client):
     print('- InsertionDate')
     client.command('CREATE PROPERTY Require.InsertionDate DATE')
     client.command('ALTER PROPERTY Require.InsertionDate MANDATORY TRUE')
-    
+
 def create_edge_propose(client):
     print('Creating the Propose class extending Edges')
     client.command('CREATE CLASS Propose EXTENDS E')
@@ -238,6 +238,20 @@ def create_edge_propose(client):
     print('- InsertionDate')
     client.command('CREATE PROPERTY Propose.InsertionDate DATE')
     client.command('ALTER PROPERTY Propose.InsertionDate MANDATORY TRUE')
+
+def create_edge_practice(client):
+    print('Creating the Practice class extending Edges')
+    client.command('CREATE CLASS Practice EXTENDS E')
+    print('Add the followings properties to the Propose:')
+    print('- InsertionDate')
+    client.command('CREATE PROPERTY Practice.InsertionDate DATE')
+    client.command('ALTER PROPERTY Practice.InsertionDate MANDATORY TRUE')
+    print('- StartDate')
+    client.command('CREATE PROPERTY Practice.StartDate DATE')
+    client.command('ALTER PROPERTY Practice.StartDate MANDATORY TRUE')
+    print('- EndDate')
+    client.command('CREATE PROPERTY Practice.EndDate DATE')
+    client.command('ALTER PROPERTY Practice.EndDate MANDATORY TRUE')
     
 
 client = pyorient.OrientDB('localhost', 2424)
@@ -276,5 +290,6 @@ create_edge_master(client)
 creage_edge_cworks_in(client)
 create_edge_require(client)
 create_edge_propose(client)
+create_edge_practice(client)
 
 client.close()
